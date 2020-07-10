@@ -6,17 +6,8 @@ import subprocess
 
 from setuptools import setup, Extension
 
-setup_requires = ['numpy', 'cython']
-FNULL = open(os.devnull, 'w')
-subprocess.check_call(
-    ['pip', 'install', *setup_requires], stdout=FNULL, stderr=subprocess.STDOUT
-)
 from Cython.Distutils import build_ext
-try:
-    import numpy
-except ImportError:
-    print('numpy is required during installation')
-    sys.exit(1)
+import numpy
 
 
 DISTNAME = 'soft-dtw'
